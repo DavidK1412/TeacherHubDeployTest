@@ -1,0 +1,33 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: brayanwtff@gmail.com
+    password: fuew evbl olbe hrxx
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://${application.database.HOST}:${application.database.PORT}/${application.database.NAME}?useSSL=false&serverTimezone=UTC
+    driver-class-name: org.postgresql.Driver
+    username: ${application.database.USER}
+    password: ${application.database.PASSWORD}
+  main:
+    allow-bean-definition-overriding: true
+
+application:
+  jwt:
+    SECRET_KEY: FC120BB229E9EC3D04138A46DD1A65FB32EB3A13BDDF90CE88BA62230602BFEC
+  database:
+    HOST: ep-lingering-silence-460483.us-east-2.aws.neon.tech
+    PORT: 5432
+    NAME: TeacherHub
+    USER: DavidK1412
+    PASSWORD: jU5WLrcCkXP8
