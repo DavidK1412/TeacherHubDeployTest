@@ -35,6 +35,22 @@ public class TeacherSubjectController {
           ).getContent());
   }
 
+  /**
+   * This method returns the teacherSubjectId as of the teacherId and subjectId.
+   * Only returns the teacherSubjectId because in the comment or grade sections already has been get the teacher and subject objects.
+   *
+   * @param teacherId
+   * @param subjectId
+   * @return teacherSubjectId
+   */
+  @GetMapping("/{teacherId}/{subjectId}")
+  public ResponseEntity<Object> getTeacherSubjectIdByTeacherIdAndSubjectId(
+    @PathVariable String teacherId,
+    @PathVariable String subjectId
+  ) {
+    return ResponseEntity.ok(teacherSubjectService.getTeacherSubjectByTeacherAndSubject(teacherId, subjectId).getId());
+  }
+
   @PreAuthorize("hasRole('ADMIN')")
   @PostMapping
   public ResponseEntity<Object> saveTeacherSubject(@RequestBody TeacherSubjectRequest teacherSubject) {

@@ -34,15 +34,13 @@ public class GradeController {
     return ResponseEntity.ok(gradeService.getGrades(PageRequest.of(page, size)).getContent());
   }
 
-  @GetMapping("/{idTeacher}/{idSubject}")
+  @GetMapping("/{idTeacherSubject}")
   public ResponseEntity<Object> getGradesByIdTeacherAndSubject(
-      @PathVariable String idTeacher,
-      @PathVariable String idSubject,
+      @PathVariable String idTeacherSubject,
       @RequestParam(defaultValue = "0") int page,
       @RequestParam(defaultValue = "10") int size
   ) {
     try {
-      String idTeacherSubject = teacherSubjectService.getTeacherSubjectByTeacherAndSubject(idTeacher, idSubject).getId();
       return ResponseEntity.ok(gradeService.getGradesByIdTeacherSubject(idTeacherSubject, PageRequest.of(page, size)).getContent());
     } catch (NoSuchElementException e) {
       return

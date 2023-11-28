@@ -1,10 +1,8 @@
 package com.TOTeams.TeacherHub.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -27,10 +25,12 @@ public class Grade {
 
   @ManyToOne
   @JoinColumn(name = "id_student")
+  @ToString.Exclude
   private User student;
 
   @ManyToOne
   @JoinColumn(name = "id_professor_subject")
+  @ToString.Exclude
   private TeacherSubject teacherSubject;
 
   @Column(nullable = false)
