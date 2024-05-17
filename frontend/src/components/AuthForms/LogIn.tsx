@@ -16,6 +16,7 @@ const LogIn = () => {
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
     };
+    
     useEffect(() => {
         updateStyles();
     }, []);

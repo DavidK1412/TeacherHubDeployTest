@@ -1,6 +1,6 @@
 export const postData = async (axiosInstance: any, endpoint: string, data: any, headers: any) => {
     try{
-        return await axiosInstance.post(endpoint, data, {headers}); // Not return just the data, we want to know the status code
+        return await axiosInstance.post(endpoint, data, {headers});
     } catch (error) {
         throw error;    
     }
@@ -8,7 +8,7 @@ export const postData = async (axiosInstance: any, endpoint: string, data: any, 
 
 export const getData = async (axiosInstance: any, endpoint: string, headers: any) => {
     try{
-        return await axiosInstance.get(endpoint, {headers: headers}); // Not return just the data, we want to know the status code
+        return await axiosInstance.get(endpoint, {headers: headers});
     } catch (error) {
         throw error;
     }
@@ -16,7 +16,7 @@ export const getData = async (axiosInstance: any, endpoint: string, headers: any
 
 export const putData = async (axiosInstance: any, endpoint: string, data: any, headers: any) => {
     try{
-        return await axiosInstance.put(endpoint, data, {headers}); // Not return just the data, we want to know the status code
+        return await axiosInstance.put(endpoint, data, {headers});
     } catch (error) {
         throw error;
     }
@@ -24,7 +24,7 @@ export const putData = async (axiosInstance: any, endpoint: string, data: any, h
 
 export const deleteData = async (axiosInstance: any, endpoint: string, headers: any) => {
     try{
-        return await axiosInstance.delete(endpoint, {headers}); // Not return just the data, we want to know the status code
+        return await axiosInstance.delete(endpoint, {headers});
     } catch (error) {
         throw error;
     }

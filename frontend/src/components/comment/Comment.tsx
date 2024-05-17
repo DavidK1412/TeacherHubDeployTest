@@ -1,37 +1,18 @@
+import { Grade } from "../../interfaces/grade";
 
-interface Student {
-    id: string;
-    nickname: string;
-    email: string;
-}
-
-interface Comment {
-    id: string;
-    student: Student;
-    comment: string;
-    isPositive: boolean;
-    note: number;
-}
-
-
-
-const CardComment = ({ comment }: { comment: Comment } ) => {
+const CardComment = ({ grade }: { grade: Grade } ) => {
     return (
         <div className="card p-3 mb-3">
             <p className="mb-1">
-                <strong>{comment.student.nickname}</strong>
+                <strong>{grade.student.nickname}</strong>
             </p>
 
-            <p className="m-2">
-                {comment.comment}
+            <p className="my-2">
+                {grade.comment}
             </p>
 
             <p className="mb-1">
-                <strong>Nota:</strong> {comment.note}
-            </p>
-
-            <p className="mb-0">
-                <strong>Es positivo:</strong> {comment.isPositive ? 'Sí' : 'No'}
+                <strong>Nota:</strong> {grade.note} <strong className="ms-5">Es positivo:</strong> {grade.isPositive ? 'Sí' : 'No'}
             </p>
         </div>
     );
