@@ -70,9 +70,11 @@ public class UserController {
             student.getActive().toString()
         ).allMatch(value -> value != null && !value.isEmpty());
 
-        boolean validIdRole = (student.getIdRole() > 0 && student.getIdRole() < Role.values().length);
+        if(user.getRole() != Role.ADMIN){
+            student.setIdRole(Role.USER.getValue());
+        }
 
-        if (!allNeedFields || !validIdRole)
+        if (!allNeedFields)
             return ResponseHandler
                 .generateResponse(
                     HttpStatus.BAD_REQUEST,
